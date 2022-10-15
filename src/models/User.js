@@ -1,18 +1,22 @@
 const mongoose = require('mongoose');
-const { isEmail } = require('validator');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+    name: {
+        type: String,
+    },
+    mobile: {
+        type: Number,
+        unique: true
+    },
     email: {
         type: String,
         unique: true,
         lowercase: true,
-        validate: [isEmail, 'Please enter valid Email address'],
-    },
-    userName: {
+    }, 
+    password: {
         type: String,
-        unique: true,
-    }
+    },
 });
 
 const UserCollection = mongoose.model('User', userSchema);

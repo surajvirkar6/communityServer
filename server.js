@@ -12,9 +12,6 @@ app.listen(port, console.log(`Server is running on port ${port}`));
 const bodyParser = require("body-parser");
 app.use(bodyParser.json({ limit: "50mb" }));
 
-const cookieParser = require('cookie-parser');
-app.use(cookieParser());
-
 const cors = require('cors');
 app.use(cors());
 

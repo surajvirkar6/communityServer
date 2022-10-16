@@ -38,15 +38,12 @@ exports.registerUser = async (req, res) => {
           const token = await generateAuthToken(data);
 
           if (token) {
-            res.cookie("jwt", token, {
-              expires: new Date(Date.now() + 3000000),
+            res.status(200).json({
+              status: true,
+              token: token,
+              message: "User has been successfully registerd.",
             });
           }
-
-          res.status(200).json({
-            status: true,
-            message: "User has been successfully registerd.",
-          });
         }
       });
     } else {

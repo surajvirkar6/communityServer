@@ -56,7 +56,7 @@ exports.registerUser = async (req, res) => {
       });
     }
   } catch (e) {
-    res.status(200).json({
+    return res.status(200).json({
       status: false,
       message: e.message,
     });

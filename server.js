@@ -15,6 +15,9 @@ app.use(bodyParser.json({ limit: "50mb" }));
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
+const cors = require('cors');
+app.use(cors());
+
 // Routes
 app.get('/', function(req, res) { res.send(`WELCOME TO BUNKERS COMMUNITY`)})
 app.use('/api/v2/user', require('./src/routes/user'));
